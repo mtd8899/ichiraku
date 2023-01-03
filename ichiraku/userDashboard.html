@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User</title>
+  <link rel="stylesheet" href="/navstyle.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Nerko+One&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="img/images/logo.png">
+  <style>
+    
+  </style>
+</head>
+
+<body>
+<nav id="head" class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a id="nuku" class="navbar-brand text-light">
+        <img id="logo" src="img/images/logo.png" alt="Ichiraku Logo">
+        Ichiraku
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item pe-5">
+            <a class="nav-link active text-white" id="linkheader" aria-current="page" href="index_user.html">Home</a>
+          </li>
+          <li class="nav-item pe-5">
+            <a class="nav-link text-white" id="linkheader" href="menu_user.html">Menu</a>
+          </li>
+          <li class="nav-item pe-5">
+            <a class="nav-link text-white" id="linkheader" href="contactus_user.html">Contact Us</a>
+          </li>
+          <li class="nav-item pe-5">
+            <a class="nav-link text-white" id="linkheader" href="aboutus_user.html">About Us</a>
+          </li>
+        </ul>
+
+        <!--START OF ->  IF LOGGED IN -->
+
+        <!-- PROFILE -->
+        <div class="dropdown">
+          <button class="dropbtn fa-solid fa-user fa-xl"
+            style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"></button>
+          <div class="dropdown-content">
+            <a class="dropdown-item" href="userDashboard.html" style="color: black;">Dashboard</a>
+            <a class="dropdown-item" href="#" style="color: black;">Logout</a>
+          </div>
+        </div>
+        <!-- END  OF ->IF LOGGED IN -->
+      </div>
+    </div>
+  </nav>
+  <div class="col-12 pl-2 pr-4 mb- pl-1">
+    <h1 style="float:left; margin-bottom:0px;">
+        Hello,
+    <h1 style="float:left;margin-bottom:0px; margin-left:0.2rem">
+        "userName!"
+    </h1>
+    </h1>
+</div>
+<br>
+<br>
+  <hr>
+  <!-- <h5>Dashboard</h5> -->
+
+    <div class="row p-4" style="margin-bottom: 10%;">
+     <center><h1 class><b>Dashboard</b></h1></center>
+     <div class="col-12 col-md-4 col-lg-4 pt-4" style="width:50%; height:100%">
+         <div class="card text-center pb-2" style="border: 5px solid black; border-radius: 22px;">
+           <div class="card-body">
+            <i class="fa-solid fa-cart-plus fa-3x pb-4 pt-3"></i>
+            <a href="menu_user.html" style="text-decoration:none; color:black;"><h2 class="card-title">Order Now ></h2></a>
+             <p class="card-text">
+           </div>
+         </div>
+     </div>
+     <div class="col-12 col-md-4 col-lg-4 pt-4" style="width:50%; height:100%">
+      <div class="card text-center pb-2" style="border: 5px solid black; border-radius: 22px;">
+        <div class="card-body">
+          <i class="fa-solid fa-book-open fa-3x pb-4 pt-3"></i>
+          <a href="orderHistory.html" style="text-decoration:none; color:black;"><h2 class="card-title">Order History ></h2></a>
+          <p class="card-text">
+        </div>
+      </div>
+  </div>
+ </div>
+ 
+
+
+
+
+  <!-- <div align="right" class="mt-2">
+    <a href="#" class="btn"><i class="fa-solid fa-circle-arrow-up fa-3x" style="color:black"></i></a>
+  </div> -->
+
+  <footer class="pt-3 pb-1 pl-3" style="background-color: rgb(255,1,1)">
+
+  </footer>
+  <div class="row text-light" style="background-color: rgb(18,18,18);">
+
+
+    <div class="col-12 pt-4 text-light">
+
+      <center><a class="navbar-brand ms-2">
+          <img src="img/images/logo2.png" alt="Ichiraku Logo" width="140" height="140">
+        </a></center>
+      <p align="center" id="nuku" style="font-size: 150%">
+        ICHIRAKU
+      </p>
+    </div>
+
+    <center class="mb-2"><i class="fa-brands fa-square-facebook fa-lg mr-5"></i>
+      <i class="fa-brands fa-square-instagram fa-lg mr-5"></i>
+      <i class="fa-brands fa-square-twitter fa-lg mr-5"></i>
+      <i class="fa-brands fa-tiktok fa-lg"></i>
+    </center>
+
+    <hr>
+
+    <center class="pt-4 pb-5">
+      <a id="footerName" class="mr-5" href="contact.html">Location</a>
+      <a id="footerName" class="mr-5" href="rates.html">Rates</a>
+      <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a>
+      <a id="footerName" class="mr-5" href="menu_user.html">Menu</a>
+      <a id="footerName" class="mr-5" href="aboutUs.html">Our Team</a>
+      <a id="footerName" class="mr-5" href="contactUs.html">Contact Us</a>
+    </center>
+
+  </div>
+
+  <footer class="pt-1 m-0" style="background-color: rgb(0, 0, 0)">
+    <p class="text-light" align="center">©2022 Copyright: Ichiraku</p>
+  </footer>
+
+
+  <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

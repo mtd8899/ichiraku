@@ -1,0 +1,23 @@
+ [
+  {
+    "takoID": 1,
+    "name": "Tan Tan",
+    "price": "150",
+    "info": "Served in Japanese style sesame chili soup with house-made ground spicy soy meat and bok choy.",
+    "src": "/img/menu/1-TanTan.png"
+  },
+   {
+    "takoID": 2,
+    "name": "Nikutama",
+    "price": 170,
+    "info": "Made-to-order noodles served with sweet and savory beef, hot spring egg, and BK sauce. Can be served cold upon request.",
+    "src": "/img/menu/2-Nikutama.png"
+  },
+ {
+    "takoID": 3,
+    "name": "Tonkotsu",
+    "price": 180,
+    "info": "Made-to-order noodles served in a pork broth with chashu pork, miso ground pork, garlic, and seasoned egg.",
+    "src": "/img/menu/3-Tonkotsu.png"
+  }
+]

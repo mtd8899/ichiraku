@@ -1,0 +1,36 @@
+@media only screen and (max-width: 600px) {
+  #orderList{
+    width: 100%; 
+    height: 40%; 
+    margin-top: 0px; 
+    margin-bottom: 0rem;
+  }
+}
+
+@media only screen and (min-width: 769px){
+  #orderList{
+    /* width: 70%; 
+    height: 40%;  */
+    margin-top: 0px; 
+    margin-bottom: 0rem;
+  }
+}
+
+
+@media only screen and (min-width: 992px){
+  #orderList{
+    width: 32%; 
+    /* height: 40%;  */
+    margin-top: 0px; 
+    margin-bottom: 0rem;
+    margin-right: 4px;
+  }
+}
+#orderList{
+  box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.432);
+  /* padding: right 5px; */
+  margin-bottom: 10px;
+}
+#orderText{
+  font-size:small;
+}

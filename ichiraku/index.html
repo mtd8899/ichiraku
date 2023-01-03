@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ichiraku</title>
+  <link rel="stylesheet" href="/navstyle.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Nerko+One&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="img/images/logo.png">
+
+  <!-- LOGO HERE -->
+  <link rel="icon" type="image/x-icon" href="">
+
+  <style>
+    /* SIGN IN/SIGN UP MODAL */
+    /* Button settings */
+    .modal-btn {
+      color: #ffffff;
+      font-weight: bold;
+      outline: solid #000000 1vw;
+      cursor: pointer;
+      border-radius: 5%;
+      background-color: #000000;
+    }
+
+    #modal-toggle {
+      display: none;
+    }
+
+    .modal-content,
+    .modal-backdrop {
+      opacity: 0;
+      position: fixed;
+      z-index: -1;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .modal-content {
+      padding-top: 0px;
+      margin-top: 0px;
+      border-radius: 2%;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+      right: 0;
+      height: 620px;
+      width: 480px;
+      transform: translateX(5%);
+    }
+
+    .modal-backdrop {
+      left: 0;
+      top: 0;
+      height: 100%;
+      height: 100vh;
+      width: 100%;
+      width: 100vw;
+    }
+
+    #modal-toggle:checked~.modal-backdrop {
+      opacity: 1;
+      background-color: rgba(15, 12, 12, 0.534);
+      z-index: 998;
+      transform: scale(1);
+    }
+
+    #modal-toggle:checked~.modal-content {
+      opacity: 1;
+      background-color: #fff;
+      overflow-y: auto;
+      overflow-x: hidden;
+      pointer-events: auto;
+      cursor: auto;
+      z-index: 999;
+      transform: translateX(0%);
+    }
+
+    @media (max-width: 600px) {
+      #modal-toggle:checked~.modal-backdrop {
+        opacity: 0;
+      }
+
+      .modal-content {
+        top: 0;
+        left: 0;
+        height: 600px;
+        width: 500px;
+      }
+    }
+
+
+    /*FUNCTIONALITY .tabs */
+    .tabs {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px 0;
+    }
+
+    .tabs>.radio {
+      display: none;
+    }
+
+    .tabs>.radio:checked+.table+.tabs-content {
+      display: block;
+    }
+
+    .tabs>.table {
+      order: -1;
+      flex-basis: 50%;
+      flex-shrink: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .tabs .tabs-content {
+      margin-top: 10px;
+      width: 100%;
+      display: none;
+    }
+
+    /* FOR SIGN IN AND SIGN UP */
+    .tabs>.table {
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: solid rgb(18, 18, 18) 5px;
+      color: #fafafa;
+      cursor: pointer;
+      background: rgb(18, 18, 18);
+      ;
+    }
+
+    .tabs>.table span {
+      font-weight: 600;
+    }
+
+    .tabs>.table:hover {
+      color: rgb(255, 255, 255);
+      background: rgb(197, 0, 0);
+    }
+
+    .tabs>.radio:checked+.table {
+      color: rgb(255, 255, 255);
+      background: rgb(197, 0, 0);
+      cursor: auto;
+    }
+
+    /* click transition */
+    .tabs>.radio:checked+.table span {
+      display: inline-block;
+      font-weight: 500;
+      transform: scale(1.2);
+      transition: 0.1s;
+    }
+
+    /* style for login & sign up  */
+    .tabs>.tabs-content .login_socnet {
+      display: -webkit-flex;
+    }
+
+    .tabs>.tabs-content .login_socnet a {
+      margin: 20px;
+      margin-bottom: 0;
+      width: 50%;
+      font-size: 60px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .tabs>.tabs-content .login_socnet a:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.2));
+    }
+
+    .tabs>.tabs-content .login_socnet .fa-square-google-plus {
+      color: #000000;
+      padding: 0;
+      margin: 1px;
+    }
+
+    .tabs>.tabs-content .login_socnet .fa-square-facebook {
+      color: #000000;
+      padding: 0;
+      margin: 1px;
+    }
+
+    .tabs>.tabs-content form {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      -o-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .tabs>.tabs-content form input {
+      padding: 0px;
+      margin: 15px 0;
+      border: none;
+      border-bottom: solid 1px #000a09;
+      font-size: 18px;
+      letter-spacing: 1px;
+      transition: 0.1s;
+    }
+
+    .tabs>.tabs-content form input:focus {
+      transform: translateX(10px);
+      outline: none;
+    }
+
+    .tabs>.tabs-content input[type="submit"] {
+      padding: 15px;
+      width: 80%;
+      background: rgb(18, 18, 18);
+      ;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5%;
+      align-items: center;
+
+    }
+
+    .tabs>.tabs-content input[type="submit"]:focus {
+      transform: none;
+    }
+
+    .tabs>.tabs-content .forgot-password label {
+      width: 50%;
+      color: rgb(18, 18, 18);
+      ;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .tabs>.tabs-content .forgot-password label:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .forgot-password #forgot-password-toggle {
+      display: none;
+    }
+
+    .forgot-password .forgot-password-content {
+      height: 0;
+      width: 0;
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity 0.2s ease-in;
+    }
+
+    .forgot-password .forgot-password-content input[type="email"] {
+      width: 80%;
+      margin-right: 0px;
+      border-right: none;
+    }
+
+    .forgot-password .forgot-password-content input[type="submit"] {
+      width: 20%;
+      margin-left: 0px;
+    }
+
+    .forgot-password #forgot-password-toggle:checked~.forgot-password-content {
+      display: flex;
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      pointer-events: auto;
+      cursor: auto;
+      visibility: visible;
+    }
+
+    .modal-close-btn {
+      margin-left: 450px;
+      margin-top: 0px;
+      display: inline-block;
+      cursor: pointer;
+      background-color: rgb(18, 18, 18);
+      color: #fafafa;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIGN IN SIGN UP MODAL -->
+  <input id="modal-toggle" type="checkbox">
+  <label class="modal-backdrop " for="modal-toggle"></label>
+  <div class="modal-content">
+    <div style="background-color: rgb(18,18,18);">
+      <label class="modal-close-btn" for="modal-toggle">
+        <i class="fa-solid fa-xmark"></i>
+        <!-- <svg width="30" height="40">
+          <line x1="10" y1="10" x2="40" y2="40"/>
+          <line x1="40" y1="10" x2="10" y2="40"/>
+        </svg> -->
+      </label>
+    </div>
+
+    <div class="tabs mt-0" style="background-color: rgb(255, 255, 255);">
+      <!--  LOG IN  -->
+
+      <input class="radio" id="tab-1" name="tabs-name" type="radio" checked>
+      <label for="tab-1" class="table"><span>Sign in</span></label>
+      <div class="tabs-content mt-3 pl-5 pr-5">
+        <form action="">
+
+          <input type="email" id="loginEmail" placeholder="Email" required>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <center><button type="button" id="loginBtn" class="btn btn-outline-dark col-5 text-white"
+              style="background-color:rgb(197,0,0);">Sign in</button></center>
+        </form>
+
+
+        <form class="forgot-password" action="">
+          <input id="forgot-password-toggle" type="checkbox">
+          <label for="forgot-password-toggle">forgot password?</label>
+          <div class="forgot-password-content pl-5 pr-5">
+            <input type="email" placeholder="enter your email" required>
+            <input type="submit" value="go">
+          </div>
+        </form>
+        <h6 align="center" class="mt-4">Or use a social network:</h6>
+        <div class="login_socnet" style="text-align: center;">
+          <a href="" class="fa-brands fa-square-facebook me-0" aria-hidden="true"></a>
+          <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
+        </div>
+      </div>
+
+      <!--  SIGN UP  -->
+      <input class="radio" id="tab-2" name="tabs-name" type="radio">
+      <label for="tab-2" class="table"><span>Sign up</span></label>
+      <div class="tabs-content pl-5 pr-5">
+        <form action="">
+          <div class="input-group">
+            <input onclick="clearErrorName()" type="text" placeholder="First Name" class="form-control"
+              id="userfirstName" required>
+            <input onclick="clearErrorName()" type="text" placeholder="Last Name" class="form-control" id="userlastName"
+              required>
+          </div><span id="errorName" style="color: red" height="auto"></span>
+          <input onclick="clearErrorEmail()" type="email" placeholder="Email" class="form-control" id="userEmail"
+            required>
+          <span id="errorEmail" style="color: red;"></span>
+          <input onclick="clearErrorPassword()" type="password" placeholder="Password" class="form-control"
+            id="userPassword" required>
+          <span id="errorPassword" style="color: red;"></span>
+          <input onclick="clearErrorConfirmPassword()" type="password" placeholder="Confirm password"
+            class="form-control" id="confirmPassword" required>
+          <span id="errorConfirmPassword" style="color: red;"></span>
+          <center><button type="button" class="btn btn-outline-dark col-5 text-white mb-5"
+              style="background-color:rgb(197,0,0);" id="signupForm">Sign Up</button></center>
+
+
+          <h6 align="center">Or use a social network:</h6>
+          <div class="login_socnet" style="text-align: center;">
+            <a href="" class="fa-brands fa-square-facebook me-0" aria-hidden="true"></a>
+            <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <nav id="head" class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a id="nuku" class="navbar-brand text-light">
+        <img id="logo" src="img/images/logo.png" alt="Ichiraku Logo">
+        Ichiraku
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item pe-5">
+            <a class="nav-link active text-white" id="linkheader" aria-current="page" href="">Home</a>
+          </li>
+          <li class="nav-item pe-5">
+            <a class="nav-link text-white" id="linkheader" href="menu.html">Menu</a>
+          </li>
+          <li class="nav-item pe-5">
+            <a class="nav-link text-white" id="linkheader" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item pe-5">
+            <a class="nav-link text-white" id="linkheader" href="about.html">About Us</a>
+          </li>
+        </ul>
+
+        <form class="d-fluid m-3 hideFormBtn">
+          <label class="modal-btn" for="modal-toggle">Sign In / Sign Up</label>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <img src="img/images/header.jpg" class="img-fluid" alt="ichirakubg">
+
+  <center><img src="img/images/featured_bannerr.png" class="img-fluid mt-2" alt="ichirakubg" width="90%" height="20%">
+  </center>
+  <br>
+  </div>
+
+  <section id="grad1" class="pt-4">
+    <div class="container text-black">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 col-12 ms-lg-5">
+          <img id="conimg" src="img/images/boat.jpg"
+            style="border: 5px solid rgb(0, 0, 0); border-radius: 15%; border-color: #000;" alt="BoatPhoto1"
+            class="img-fluid col-md-9 col-lg-12 mb-5">
+        </div>
+
+        <div class="col-lg-7 col-md-8 mb-5">
+          <div class="container card mt-2 mb-4" style="background-color:white; outline-style:groove;">
+            <h4 align="center" id="menuSakoSushi" class="pt-3">Sushi Boat Platter</h5>
+              <p>
+                Available in Regular (31 pieces of sashimi, nigiri and makimono) and Deluxe (36 pieces of our
+                bestselling makimono).
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <center><img src="img/images/menu_banner.png" class="img-fluid" alt="ichirakubg" width="90%" height="20%"></center>
+  <!-- SUSHI -->
+  <section id="grad1">
+    <div class="container text-black">
+      <div class="row">
+        <section>
+          <div class="row p-4">
+            <!-- SAMPLE PRODUCTS -->
+            <h3 id="menuSakoSushi" class="text-black">Sushi</h3>
+
+            <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                <img id="shopimage" src="img/menu/1-salmon.jpg" alt="Avatar" class="image"
+                  style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                <!-- Product name -->
+                <p align="center" id="menuName" class="pb-0">Salmon Sushi Roll</p>
+                <!-- PRODUCT INFO -->
+                <p class="pb-4">Tempura and cucumber wrapped with salmon served with soy sauce and wasabi.</p>
+              </div>
+            </div>
+
+            <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                <img id="shopimage" src="img/menu/2-smoked.jpg" alt="Avatar" class="image"
+                  style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                <!-- INFO + PRICE -->
+                <p align="center" id="menuName" class="pb-0">Smoked salmon sushi</p>
+                <p class="pb-4">Layer the cheese mix with the rice, cucumber, and red bell pepper.</p>
+              </div>
+            </div>
+
+            <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                <img id="shopimage" src="img/menu/3-paleo.jpg" alt="Avatar" class="image"
+                  style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                <!-- INFO + PRICE -->
+                <p align="center" id="menuName" class="pb-0">palaeo sushi</p>
+                <p class="pb-4">cauliflower rice, smoked salmon, bacon, asparagus stalks and milk.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <!-- TAKOYAKI -->
+  <section id="grad1">
+    <div class="container text-black">
+      <div class="row">
+        <section>
+          <div class="row p-4">
+            <!-- SAMPLE PRODUCTS -->
+            <h3 id="menuSakoSushi" class="text-black">Takoyaki</h3>
+            <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                <img id="shopimage" src="img/menu/1-original.jpg" alt="Avatar" class="image"
+                  style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                <!-- INFO + PRICE -->
+                <p align="center" id="menuName" class="pb-0">Original</p>
+                <p class="pb-4">Tanota sauce, mayo, bonito flakes, seaweed.</p>
+              </div>
+            </div>
+            <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                <img id="shopimage" src="img/menu/2-jalapeno.jpg" alt="Avatar" class="image"
+                  style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                <!-- INFO + PRICE -->
+                <p align="center" id="menuName" class="pb-0">Jalapeño</p>
+                <p class="pb-4">Jalapeño mayo, bonito flakes, green seaweed.</p>
+              </div>
+            </div>
+            <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                <img id="shopimage" src="img/menu/3-ponzu.jpg" alt="Avatar" class="image"
+                  style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                <!-- INFO + PRICE -->
+                <p align="center" id="menuName" class="pb-0">Ponzu</p>
+                <p class="pb-4">Citrus soy sauce, bonito flakes, green onion.</p>
+              </div>
+            </div>
+            <div align="right" class="mt-2">
+              <a id="menuName" href="/menu.html" class="btn btn-outline-dark text-light"
+                style="background-color: rgb(0, 0, 0);">See our Menu ➜</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <div align="right" class="mt-2">
+    <a href="#" class="btn"><i class="fa-solid fa-circle-arrow-up fa-3x" style="color:black"></i></a>
+  </div>
+
+  <footer class="pt-3 pb-1 pl-3" style="background-color: rgb(255,1,1)">
+
+  </footer>
+  <div class="row text-light" style="background-color: rgb(18,18,18);">
+
+
+    <div class="col-12 pt-4 text-light">
+
+      <center><a class="navbar-brand ms-2">
+          <img id="footerlogo" src="img/images/logo2.png" alt="Ichiraku Logo">
+        </a></center>
+      <p align="center" id="nuku" style="font-size: 150%">
+        ICHIRAKU
+      </p>
+    </div>
+
+    <center class="mb-2"><i class="fa-brands fa-square-facebook fa-lg mr-5"></i>
+      <i class="fa-brands fa-square-instagram fa-lg mr-5"></i>
+      <i class="fa-brands fa-square-twitter fa-lg mr-5"></i>
+      <i class="fa-brands fa-tiktok fa-lg"></i>
+    </center>
+
+    <hr>
+
+    <center class="pt-4 pb-5">
+      <a id="footerName" class="mr-5" href="location.html">Location</a>
+      <a id="footerName" class="mr-5" href="rates.html">Rates</a>
+      <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a>
+      <a id="footerName" class="mr-5" href="menu.html">Menu</a>
+      <a id="footerName" class="mr-5" href="about.html">Our Team</a>
+      <a id="footerName" class="mr-5" href="contact.html">Contact Us</a>
+    </center>
+
+  </div>
+
+  <footer class="pt-1 m-0" style="background-color: rgb(0, 0, 0)">
+    <p class="text-light" align="center">©2022 Copyright: Ichiraku</p>
+  </footer>
+
+  <script type="module" src="Registration.js"></script>
+
+  <script>
+    function clearErrorName() {
+      $("#errorName").text("");
+
+    }
+    function clearErrorEmail() {
+      $("#errorEmail").text("");
+
+    }
+    function clearErrorPassword() {
+      $("#errorPassword").text("");
+      clearErrorConfirmPassword();
+    }
+    function clearErrorConfirmPassword() {
+      $("#errorConfirmPassword").text("");
+
+    }
+  </script>
+  <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+    integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

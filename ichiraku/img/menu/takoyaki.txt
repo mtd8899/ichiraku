@@ -1,0 +1,44 @@
+ [
+  {
+    "takoID": 1,
+    "name": "Original",
+    "price": "30",
+    "info": "Tanota sauce, mayo, bonito flakes, seaweed.",
+    "src": "/img/menu/1-original.jpg"
+  },
+   {
+    "takoID": 2,
+    "name": "Jalapeno",
+    "price": 35,
+    "info": "Jalapeño mayo, bonito flakes, green seaweed.",
+    "src": "/img/menu/2-jalapeno.jpg"
+  },
+ {
+    "takoID": 3,
+    "name": "Ponzu",
+    "price": 40,
+    "info": "Citrus soy sauce, bonito flakes, green onion.",
+    "src": "/img/menu/3-ponzu.jpg"
+  },
+{
+    "takoID": 4,
+    "name": "Wasabi",
+    "price": 35,
+    "info": "Wasabi mayo, tanota sauce, seaweed, wasabi flakes.",
+    "src": "/img/menu/4-wasabi.jpg"
+  },
+{
+    "takoID": 5,
+    "name": "Mentaiko",
+    "price": 45,
+    "info": "Spicy caviar sauce, seaweed, green onions.",
+    "src": "/img/menu/5-mentaiko.jpg"
+  },
+{
+    "takoID": 6,
+    "name": "Goma",
+    "price": 45,
+    "info": "Sesame oil sauce, sea salt, sasame seeds, green onions.",
+    "src": "/img/menu/6-goma.jpg"
+  },
+]
